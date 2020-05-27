@@ -1,8 +1,8 @@
 halyard:
-  spinnakerVersion: 1.16.1
+  spinnakerVersion: 1.19.4
   image:
     repository: gcr.io/spinnaker-marketplace/halyard
-    tag: 1.23.2
+    tag: 1.32.0
     pullSecrets: []
   # Set to false to disable persistence data volume for halyard
   persistence:
@@ -12,24 +12,21 @@ halyard:
   # Provide a config map with Hal commands that will be run the core config (storage)
   # The config map should contain a script in the config.sh key
   additionalScripts:
-    enabled: true
-    configMapName: my-halyard-config
-    configMapKey: config.sh
     # If you'd rather do an inline script, set create to true and put the content in the data dict like you would a configmap
     # The content will be passed through `tpl`, so value interpolation is supported.
     create: true
-    data: {
+    data:
       enable_gcs_artifacts.sh: |-
-        \$HAL_COMMAND config artifact gcs account add gcs-$PROJECT --json-path /opt/gcs/key.json
-        \$HAL_COMMAND config artifact gcs enable
+        hal --daemon-endpoint http://spinnaker-chart-spinnake-halyard:8064 config artifact gcs account add gcs-redbelly --json-path '/opt/gcs/key.json'
+        hal --daemon-endpoint http://spinnaker-chart-spinnake-halyard:8064 config artifact gcs enable
       enable_pubsub_triggers.sh: |-
-        \$HAL_COMMAND config pubsub google enable
-        \$HAL_COMMAND config pubsub google subscription add gcr-triggers \
-          --subscription-name gcr-triggers \
+        hal --daemon-endpoint http://spinnaker-chart-spinnake-halyard:8064 config pubsub google enable
+        hal --daemon-endpoint http://spinnaker-chart-spinnake-halyard:8064 config pubsub google subscription add mytriggers \
+          --subscription-name=gcr-triggers \
           --json-path /opt/gcs/key.json \
-          --project $PROJECT \
+          --project redbelly \
           --message-format GCR
-    }
+
   additionalSecrets:
     create: false
     data: {}
@@ -157,14 +154,21 @@ dockerRegistries:
       - library/centos
       - library/nginx
   - name: gcr
-    address: ${gcr_link}
+    address: asia.gcr.io
+    repositories:
+      - redbelly
     username: _json_key
-    password:  '${gcs_jsonKey}'
-    email: 1234@5678.com
+    password: '${gcs_jsonKey}'
+    email: ${sa_email}
+# - name: gcr
+#   address: https://gcr.io
+#   username: _json_key
+#   password: '<INSERT YOUR SERVICE ACCOUNT JSON HERE>'
+#   email: 1234@5678.com
 # - name: ecr
 #   address: <AWS-ACCOUNT-ID>.dkr.ecr.<REGION>.amazonaws.com
 #   username: AWS
-#   passwordCommand: "aws --region <REGION> ecr get-authorization-token --output text --query 'authorizationData[].authorizationToken' | base64 -d | sed 's/^AWS://'"
+#   passwordCommand: aws --region <REGION> ecr get-authorization-token --output text --query 'authorizationData[].authorizationToken' | base64 -d | sed 's/^AWS://'
 
 # If you don't want to put your passwords into a values file
 # you can use a pre-created secret instead of putting passwords
@@ -270,11 +274,14 @@ redis:
 minio:
   enabled: ${minio_enabled}
   image:
-    tag: RELEASE.2018-08-25T01-56-38Z
-  serviceType: ClusterIP
+    tag: RELEASE.2020-01-03T19-12-21Z
+  service:
+    type: ClusterIP
   accessKey: spinnakeradmin
   secretKey: spinnakeradmin
-  bucket: "spinnaker"
+  defaultBucket:
+    enabled: true
+    name: "spinnaker"
   nodeSelector: {}
 # Uncomment if you don't want to create a PVC for minio
 #  persistence:
@@ -290,7 +297,7 @@ gcs:
   ## override the name of the secret to use for jsonKey, if `jsonKey`
   ## is empty, it will not create a secret assuming you are creating one
   ## external to the chart. the key for that secret should be `key.json`.
-  # secretName:
+  secretName:
 
 # AWS Simple Storage Service
 s3:
