@@ -9,5 +9,5 @@ resource "google_cloudbuild_trigger" "github_repo" {
     }
   }
 
-  filename = file("../cloudbuild.yaml")
+  filename = "cloudbuild.yaml"
 }
