@@ -1,5 +1,5 @@
 steps:
   - name: "gcr.io/cloud-builders/docker"
-    args: ["build", "-t", "asia.gcr.io/redbelly/lil", "-f", "api.dockerfile", "."]
+    args: ["build", "-t", "asia.gcr.io/redbelly/olil", "-f", "api.dockerfile", "."]
 images:
-  - "asia.gcr.io/redbelly/lil"
+  - "asia.gcr.io/redbelly/olil"

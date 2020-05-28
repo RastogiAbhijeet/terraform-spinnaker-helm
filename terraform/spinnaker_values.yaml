@@ -24,7 +24,7 @@ halyard:
         hal --daemon-endpoint http://spinnaker-chart-spinnake-halyard:8064 config artifact gcs account add gcs-redbelly --json-path '/opt/gcs/key.json'
       enable_pubsub_triggers.sh: |-
         hal --daemon-endpoint http://spinnaker-chart-spinnake-halyard:8064 config pubsub google enable
-        hal --daemon-endpoint http://spinnaker-chart-spinnake-halyard:8064 config pubsub google subscription add mytriggers \
+        hal --daemon-endpoint http://spinnaker-chart-spinnake-halyard:8064 config pubsub google subscription add gcr-triggers \
           --subscription-name=gcr-triggers \
           --json-path /opt/gcs/key.json \
           --project redbelly \
