@@ -1,3 +1,5 @@
 .envrc
 .terraform
 spinnaker
+
+./service/node_modules
