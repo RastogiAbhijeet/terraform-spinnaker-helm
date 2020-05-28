@@ -15,7 +15,7 @@ COPY service/package.json /app/package.json
 
 RUN yarn install --pure-lockfile
 
-COPY service/ /app/
+COPY service/ /app
 
 ENV NODE_ENV production
 ENV PORT 80
