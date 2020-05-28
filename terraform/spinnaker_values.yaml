@@ -16,9 +16,12 @@ halyard:
     # The content will be passed through `tpl`, so value interpolation is supported.
     create: true
     data:
+      enable_github_artifacts.sh: |-
+        hal --daemon-endpoint http://spinnaker-chart-spinnake-halyard:8064 config artifact github enable 
+        hal --daemon-endpoint http://spinnaker-chart-spinnake-halyard:8064 config artifact github account add github-artifact --token ${git_token}
       enable_gcs_artifacts.sh: |-
-        hal --daemon-endpoint http://spinnaker-chart-spinnake-halyard:8064 config artifact gcs account add gcs-redbelly --json-path '/opt/gcs/key.json'
         hal --daemon-endpoint http://spinnaker-chart-spinnake-halyard:8064 config artifact gcs enable
+        hal --daemon-endpoint http://spinnaker-chart-spinnake-halyard:8064 config artifact gcs account add gcs-redbelly --json-path '/opt/gcs/key.json'
       enable_pubsub_triggers.sh: |-
         hal --daemon-endpoint http://spinnaker-chart-spinnake-halyard:8064 config pubsub google enable
         hal --daemon-endpoint http://spinnaker-chart-spinnake-halyard:8064 config pubsub google subscription add mytriggers \

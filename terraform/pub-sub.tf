@@ -1,5 +1,5 @@
 resource "google_pubsub_topic" "spinnaker" {
-  name = "gcr"
+  name = "gcr-triggers"
 
   labels = {
     env = "spinnaker"

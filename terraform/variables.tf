@@ -9,3 +9,7 @@ variable "gcp_project_location" {
 variable "machine_type" {
   default = "n1-standard-4"
 }
+
+variable "github_token" {
+  type = string
+}

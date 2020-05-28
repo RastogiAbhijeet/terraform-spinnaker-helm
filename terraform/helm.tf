@@ -17,6 +17,7 @@ resource "helm_release" "spinnaker" {
       gcs_jsonKey     = trimspace(base64decode(google_service_account_key.mykey.private_key))
       gcr_link        = data.google_container_registry_repository.spinnaker.repository_url
       sa_email        = google_service_account.spinnaker.email
+      git_token       = var.github_token
     })}"
   ]
 }
