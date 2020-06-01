@@ -1,8 +1,10 @@
+
 resource "helm_release" "spinnaker" {
-  name    = "spinnaker-chart"
-  chart   = "stable/spinnaker"
-  version = "2.0.0-rc3"
-  wait    = true
+  name       = "spinnaker-chart"
+  chart      = "stable/spinnaker"
+  version    = "2.0.0-rc3"
+  
+  wait       = true
 
   recreate_pods   = true
   cleanup_on_fail = true

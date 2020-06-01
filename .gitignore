@@ -1,5 +1,7 @@
 .envrc
 .terraform
 spinnaker
-
+vm_jenkins
+packer_jenkins
 /service/node_modules
+
