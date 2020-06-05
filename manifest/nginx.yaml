@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: gcr.io/redbelly/nginx
+          image: gcr.io/redbelly/nginx@sha256:d9002da0297bcd0909b394c26bd0fc9d8c466caf2b7396f58948cac5318d0d0b
           ports:
             - containerPort: 80
 
