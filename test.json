@@ -1,0 +1,418 @@
+{
+  "type": "PIPELINE",
+  "id": "01EA33V7EVDQDD7AKA601QW49X",
+  "application": "second",
+  "name": "staging",
+  "buildTime": 1591390084620,
+  "canceled": false,
+  "limitConcurrent": true,
+  "keepWaitingPipelines": false,
+  "stages": [
+    {
+      "id": "01EA33V7GCM273X92HMPM33VCB",
+      "refId": "1",
+      "type": "deployManifest",
+      "name": "Deploy (Manifest)",
+      "startTime": 1591390084708,
+      "endTime": 1591390085357,
+      "status": "TERMINAL",
+      "context": {
+        "deploy.account.name": "default",
+        "kato.task.terminalRetryCount": 0,
+        "moniker": { "app": "second" },
+        "source": "artifact",
+        "kato.task.firstNotFoundRetry": -1,
+        "manifestArtifactId": "6ea85c01-095d-4eaf-af75-312902e99907",
+        "optionalArtifacts": [
+          {
+            "customKind": false,
+            "reference": "https://api.github.com/repos/RastogiAbhijeet/terraform-spinnaker-helm/contents/manifest/nginx.yaml",
+            "metadata": { "id": "1ab4f783-1164-4aca-bce2-2cb5543792e2" },
+            "name": "manifest/nginx.yaml",
+            "artifactAccount": "github-artifact",
+            "type": "github/file",
+            "version": "master"
+          }
+        ],
+        "cloudProvider": "kubernetes",
+        "kato.result.expected": true,
+        "manifests": [
+          {
+            "metadata": {
+              "name": "nginx-deployment",
+              "labels": { "app": "nginx-test" }
+            },
+            "apiVersion": "apps/v1",
+            "kind": "Deployment",
+            "spec": {
+              "template": {
+                "metadata": { "labels": { "app": "nginx-test" } },
+                "spec": {
+                  "containers": [
+                    {
+                      "image": "gcr.io/redbelly/nginx",
+                      "name": "nginx",
+                      "ports": [{ "containerPort": 80 }]
+                    }
+                  ]
+                }
+              },
+              "replicas": 3,
+              "selector": { "matchLabels": { "app": "nginx-test" } }
+            }
+          }
+        ],
+        "trafficManagement": {
+          "options": { "enableTraffic": false, "services": [] },
+          "enabled": false
+        },
+        "kato.tasks": [
+          {
+            "exception": {
+              "cause": "The following required artifacts could not be bound: '[ArtifactKey(type=github/file, name=manifest/nginx.yaml, version=master, location=null, reference=https://api.github.com/repos/RastogiAbhijeet/terraform-spinnaker-helm/contents/manifest/nginx.yaml)]'. Check that the Docker image name above matches the name used in the image field of your manifest. Failing the stage as this is likely a configuration error.",
+              "details": [
+                {
+                  "message": "The following required artifacts could not be bound: '[ArtifactKey(type=github/file, name=manifest/nginx.yaml, version=master, location=null, reference=https://api.github.com/repos/RastogiAbhijeet/terraform-spinnaker-helm/contents/manifest/nginx.yaml)]'. Check that the Docker image name above matches the name used in the image field of your manifest. Failing the stage as this is likely a configuration error."
+                }
+              ],
+              "message": "The following required artifacts could not be bound: '[ArtifactKey(type=github/file, name=manifest/nginx.yaml, version=master, location=null, reference=https://api.github.com/repos/RastogiAbhijeet/terraform-spinnaker-helm/contents/manifest/nginx.yaml)]'. Check that the Docker image name above matches the name used in the image field of your manifest. Failing the stage as this is likely a configuration error.",
+              "type": "EXCEPTION",
+              "operation": "KubernetesDeployManifestOperation"
+            },
+            "resultObjects": [
+              {
+                "cause": "The following required artifacts could not be bound: '[ArtifactKey(type=github/file, name=manifest/nginx.yaml, version=master, location=null, reference=https://api.github.com/repos/RastogiAbhijeet/terraform-spinnaker-helm/contents/manifest/nginx.yaml)]'. Check that the Docker image name above matches the name used in the image field of your manifest. Failing the stage as this is likely a configuration error.",
+                "details": [
+                  {
+                    "message": "The following required artifacts could not be bound: '[ArtifactKey(type=github/file, name=manifest/nginx.yaml, version=master, location=null, reference=https://api.github.com/repos/RastogiAbhijeet/terraform-spinnaker-helm/contents/manifest/nginx.yaml)]'. Check that the Docker image name above matches the name used in the image field of your manifest. Failing the stage as this is likely a configuration error."
+                  }
+                ],
+                "message": "The following required artifacts could not be bound: '[ArtifactKey(type=github/file, name=manifest/nginx.yaml, version=master, location=null, reference=https://api.github.com/repos/RastogiAbhijeet/terraform-spinnaker-helm/contents/manifest/nginx.yaml)]'. Check that the Docker image name above matches the name used in the image field of your manifest. Failing the stage as this is likely a configuration error.",
+                "type": "EXCEPTION",
+                "operation": "KubernetesDeployManifestOperation"
+              }
+            ],
+            "id": "9cb5510c-a3d9-4e54-bb67-a17d75d4d2aa",
+            "history": [
+              {
+                "phase": "ORCHESTRATION",
+                "status": "Initializing Orchestration Task"
+              },
+              {
+                "phase": "ORCHESTRATION",
+                "status": "Processing op: KubernetesDeployManifestOperation"
+              },
+              {
+                "phase": "DEPLOY_KUBERNETES_MANIFEST",
+                "status": "Beginning deployment of manifest..."
+              },
+              {
+                "phase": "DEPLOY_KUBERNETES_MANIFEST",
+                "status": "Finding deployer for deployment..."
+              },
+              {
+                "phase": "DEPLOY_KUBERNETES_MANIFEST",
+                "status": "Swapping out artifacts in deployment nginx-deployment from context..."
+              },
+              {
+                "phase": "DEPLOY_KUBERNETES_MANIFEST",
+                "status": "Checking if all requested artifacts were bound..."
+              },
+              {
+                "phase": "ORCHESTRATION",
+                "status": "Orchestration failed: KubernetesDeployManifestOperation | IllegalArgumentException: [The following required artifacts could not be bound: '[ArtifactKey(type=github/file, name=manifest/nginx.yaml, version=master, location=null, reference=https://api.github.com/repos/RastogiAbhijeet/terraform-spinnaker-helm/contents/manifest/nginx.yaml)]'. Check that the Docker image name above matches the name used in the image field of your manifest. Failing the stage as this is likely a configuration error.]"
+              }
+            ],
+            "status": { "retryable": false, "completed": true, "failed": true }
+          }
+        ],
+        "manifestArtifactAccount": "github-artifact",
+        "kato.last.task.id": { "id": "9cb5510c-a3d9-4e54-bb67-a17d75d4d2aa" },
+        "kato.task.notFoundRetryCount": 0,
+        "account": "default",
+        "requiredArtifactIds": ["6ea85c01-095d-4eaf-af75-312902e99907"],
+        "skipExpressionEvaluation": false,
+        "requiredArtifacts": [
+          {
+            "customKind": false,
+            "reference": "https://api.github.com/repos/RastogiAbhijeet/terraform-spinnaker-helm/contents/manifest/nginx.yaml",
+            "metadata": { "id": "1ab4f783-1164-4aca-bce2-2cb5543792e2" },
+            "name": "manifest/nginx.yaml",
+            "artifactAccount": "github-artifact",
+            "type": "github/file",
+            "version": "master"
+          }
+        ],
+        "kato.task.lastStatus": "TERMINAL"
+      },
+      "outputs": {
+        "manifests": [
+          {
+            "metadata": {
+              "name": "nginx-deployment",
+              "labels": { "app": "nginx-test" }
+            },
+            "apiVersion": "apps/v1",
+            "kind": "Deployment",
+            "spec": {
+              "template": {
+                "metadata": { "labels": { "app": "nginx-test" } },
+                "spec": {
+                  "containers": [
+                    {
+                      "image": "gcr.io/redbelly/nginx",
+                      "name": "nginx",
+                      "ports": [{ "containerPort": 80 }]
+                    }
+                  ]
+                }
+              },
+              "replicas": 3,
+              "selector": { "matchLabels": { "app": "nginx-test" } }
+            }
+          }
+        ],
+        "requiredArtifacts": [
+          {
+            "type": "github/file",
+            "customKind": false,
+            "name": "manifest/nginx.yaml",
+            "version": "master",
+            "reference": "https://api.github.com/repos/RastogiAbhijeet/terraform-spinnaker-helm/contents/manifest/nginx.yaml",
+            "metadata": { "id": "1ab4f783-1164-4aca-bce2-2cb5543792e2" },
+            "artifactAccount": "github-artifact"
+          }
+        ],
+        "optionalArtifacts": [
+          {
+            "type": "github/file",
+            "customKind": false,
+            "name": "manifest/nginx.yaml",
+            "version": "master",
+            "reference": "https://api.github.com/repos/RastogiAbhijeet/terraform-spinnaker-helm/contents/manifest/nginx.yaml",
+            "metadata": { "id": "1ab4f783-1164-4aca-bce2-2cb5543792e2" },
+            "artifactAccount": "github-artifact"
+          }
+        ]
+      },
+      "tasks": [
+        {
+          "id": "1",
+          "implementingClass": "com.netflix.spinnaker.orca.clouddriver.tasks.manifest.ResolveDeploySourceManifestTask",
+          "name": "resolveDeploySourceManifest",
+          "startTime": 1591390084758,
+          "endTime": 1591390085074,
+          "status": "SUCCEEDED",
+          "stageStart": true,
+          "stageEnd": false,
+          "loopStart": false,
+          "loopEnd": false
+        },
+        {
+          "id": "2",
+          "implementingClass": "com.netflix.spinnaker.orca.clouddriver.tasks.manifest.DeployManifestTask",
+          "name": "deployManifest",
+          "startTime": 1591390085079,
+          "endTime": 1591390085188,
+          "status": "SUCCEEDED",
+          "stageStart": false,
+          "stageEnd": false,
+          "loopStart": false,
+          "loopEnd": false
+        },
+        {
+          "id": "3",
+          "implementingClass": "com.netflix.spinnaker.orca.clouddriver.tasks.MonitorKatoTask",
+          "name": "monitorDeploy",
+          "startTime": 1591390085193,
+          "endTime": 1591390085303,
+          "status": "TERMINAL",
+          "stageStart": false,
+          "stageEnd": false,
+          "loopStart": false,
+          "loopEnd": false
+        },
+        {
+          "id": "4",
+          "implementingClass": "com.netflix.spinnaker.orca.clouddriver.tasks.manifest.PromoteManifestKatoOutputsTask",
+          "name": "promoteOutputs",
+          "status": "NOT_STARTED",
+          "stageStart": false,
+          "stageEnd": false,
+          "loopStart": false,
+          "loopEnd": false
+        },
+        {
+          "id": "5",
+          "implementingClass": "com.netflix.spinnaker.orca.clouddriver.tasks.manifest.ManifestForceCacheRefreshTask",
+          "name": "forceCacheRefresh",
+          "status": "NOT_STARTED",
+          "stageStart": false,
+          "stageEnd": false,
+          "loopStart": false,
+          "loopEnd": false
+        },
+        {
+          "id": "6",
+          "implementingClass": "com.netflix.spinnaker.orca.clouddriver.tasks.manifest.WaitForManifestStableTask",
+          "name": "waitForManifestToStabilize",
+          "status": "NOT_STARTED",
+          "stageStart": false,
+          "stageEnd": false,
+          "loopStart": false,
+          "loopEnd": false
+        },
+        {
+          "id": "7",
+          "implementingClass": "com.netflix.spinnaker.orca.clouddriver.tasks.artifacts.CleanupArtifactsTask",
+          "name": "cleanupArtifacts",
+          "status": "NOT_STARTED",
+          "stageStart": false,
+          "stageEnd": false,
+          "loopStart": false,
+          "loopEnd": false
+        },
+        {
+          "id": "8",
+          "implementingClass": "com.netflix.spinnaker.orca.clouddriver.tasks.MonitorKatoTask",
+          "name": "monitorCleanup",
+          "status": "NOT_STARTED",
+          "stageStart": false,
+          "stageEnd": false,
+          "loopStart": false,
+          "loopEnd": false
+        },
+        {
+          "id": "9",
+          "implementingClass": "com.netflix.spinnaker.orca.clouddriver.tasks.manifest.PromoteManifestKatoOutputsTask",
+          "name": "promoteOutputs",
+          "status": "NOT_STARTED",
+          "stageStart": false,
+          "stageEnd": false,
+          "loopStart": false,
+          "loopEnd": false
+        },
+        {
+          "id": "10",
+          "implementingClass": "com.netflix.spinnaker.orca.clouddriver.tasks.manifest.ManifestForceCacheRefreshTask",
+          "name": "forceCacheRefresh",
+          "status": "NOT_STARTED",
+          "stageStart": false,
+          "stageEnd": false,
+          "loopStart": false,
+          "loopEnd": false
+        },
+        {
+          "id": "11",
+          "implementingClass": "com.netflix.spinnaker.orca.pipeline.tasks.artifacts.BindProducedArtifactsTask",
+          "name": "bindProducedArtifacts",
+          "status": "NOT_STARTED",
+          "stageStart": false,
+          "stageEnd": true,
+          "loopStart": false,
+          "loopEnd": false
+        }
+      ],
+      "requisiteStageRefIds": []
+    }
+  ],
+  "startTime": 1591390084702,
+  "endTime": 1591390085411,
+  "status": "TERMINAL",
+  "authentication": {
+    "user": "anonymous",
+    "allowedAccounts": ["dockerhub", "gcr", "default"]
+  },
+  "origin": "api",
+  "trigger": {
+    "type": "manual",
+    "user": "[anonymous]",
+    "parameters": {},
+    "artifacts": [
+      {
+        "customKind": false,
+        "reference": "https://api.github.com/repos/RastogiAbhijeet/terraform-spinnaker-helm/contents/manifest/nginx.yaml",
+        "metadata": { "id": "1ab4f783-1164-4aca-bce2-2cb5543792e2" },
+        "name": "manifest/nginx.yaml",
+        "artifactAccount": "github-artifact",
+        "type": "github/file",
+        "version": "master"
+      }
+    ],
+    "notifications": [],
+    "rebake": false,
+    "dryRun": false,
+    "strategy": false,
+    "resolvedExpectedArtifacts": [
+      {
+        "usePriorArtifact": false,
+        "useDefaultArtifact": true,
+        "defaultArtifact": {
+          "customKind": false,
+          "reference": "https://api.github.com/repos/RastogiAbhijeet/terraform-spinnaker-helm/contents/manifest/nginx.yaml",
+          "metadata": { "id": "1ab4f783-1164-4aca-bce2-2cb5543792e2" },
+          "name": "manifest/nginx.yaml",
+          "artifactAccount": "github-artifact",
+          "type": "github/file",
+          "version": "master"
+        },
+        "id": "6ea85c01-095d-4eaf-af75-312902e99907",
+        "boundArtifact": {
+          "customKind": false,
+          "reference": "https://api.github.com/repos/RastogiAbhijeet/terraform-spinnaker-helm/contents/manifest/nginx.yaml",
+          "metadata": { "id": "1ab4f783-1164-4aca-bce2-2cb5543792e2" },
+          "name": "manifest/nginx.yaml",
+          "artifactAccount": "github-artifact",
+          "type": "github/file",
+          "version": "master"
+        },
+        "matchArtifact": {
+          "customKind": false,
+          "metadata": { "id": "b3829453-845e-4f55-83c7-ce3d2117cd0b" },
+          "name": "manifest/nginx.yaml",
+          "artifactAccount": "github-artifact",
+          "type": "github/file"
+        }
+      }
+    ],
+    "expectedArtifacts": [
+      {
+        "usePriorArtifact": false,
+        "useDefaultArtifact": true,
+        "defaultArtifact": {
+          "customKind": false,
+          "reference": "https://api.github.com/repos/RastogiAbhijeet/terraform-spinnaker-helm/contents/manifest/nginx.yaml",
+          "metadata": { "id": "1ab4f783-1164-4aca-bce2-2cb5543792e2" },
+          "name": "manifest/nginx.yaml",
+          "artifactAccount": "github-artifact",
+          "type": "github/file",
+          "version": "master"
+        },
+        "id": "6ea85c01-095d-4eaf-af75-312902e99907",
+        "boundArtifact": {
+          "customKind": false,
+          "reference": "https://api.github.com/repos/RastogiAbhijeet/terraform-spinnaker-helm/contents/manifest/nginx.yaml",
+          "metadata": { "id": "1ab4f783-1164-4aca-bce2-2cb5543792e2" },
+          "name": "manifest/nginx.yaml",
+          "artifactAccount": "github-artifact",
+          "type": "github/file",
+          "version": "master"
+        },
+        "matchArtifact": {
+          "customKind": false,
+          "metadata": { "id": "b3829453-845e-4f55-83c7-ce3d2117cd0b" },
+          "name": "manifest/nginx.yaml",
+          "artifactAccount": "github-artifact",
+          "type": "github/file"
+        }
+      }
+    ],
+    "executionId": "01EA33V7EVDQDD7AKA601QW49X",
+    "eventId": "88e0305e-42d0-4dad-9021-16aece8b9c35",
+    "enabled": false
+  },
+  "pipelineConfigId": "471cad24-a173-435e-8505-f2961524479d",
+  "notifications": [],
+  "initialConfig": {},
+  "systemNotifications": []
+}

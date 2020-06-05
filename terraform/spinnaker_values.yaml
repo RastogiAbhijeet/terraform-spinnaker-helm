@@ -27,7 +27,7 @@ halyard:
         hal --daemon-endpoint http://spinnaker-chart-spinnake-halyard:8064 config pubsub google subscription add gcr-triggers \
           --subscription-name=gcr-triggers \
           --json-path /opt/gcs/key.json \
-          --project {gcp_project} \
+          --project ${gcp_project} \
           --message-format GCR
 
   additionalSecrets:
@@ -161,7 +161,7 @@ dockerRegistries:
     repositories:
       - ${gcp_project}
     username: _json_key
-    password: "${gcs_jsonKey}"
+    password: '${gcs_jsonKey}'
     email: ${sa_email}
 # - name: gcr
 #   address: https://gcr.io
@@ -296,7 +296,7 @@ gcs:
   project: "${gcp_project}"
   bucket: "${gcs_bucket_name}"
   ## if jsonKey is set, will create a secret containing it
-  jsonKey: "${gcs_jsonKey}"
+  jsonKey: '${gcs_jsonKey}'
   ## override the name of the secret to use for jsonKey, if `jsonKey`
   ## is empty, it will not create a secret assuming you are creating one
   ## external to the chart. the key for that secret should be `key.json`.
