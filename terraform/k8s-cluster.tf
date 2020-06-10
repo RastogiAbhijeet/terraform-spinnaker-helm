@@ -22,12 +22,13 @@ resource "google_container_node_pool" "primary" {
 
   node_count = 1
 
-  node_config  {
+  node_config {
     preemptible  = true
     machine_type = var.machine_type
     oauth_scopes = [
       "https://www.googleapis.com/auth/logging.write",
       "https://www.googleapis.com/auth/monitoring",
+      "https://www.googleapis.com/auth/devstorage.read_only"
     ]
   }
 
@@ -35,6 +36,4 @@ resource "google_container_node_pool" "primary" {
     max_node_count = 1
     min_node_count = 0
   }
-
-
 }

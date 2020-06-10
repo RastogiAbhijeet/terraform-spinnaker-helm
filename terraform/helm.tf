@@ -6,7 +6,6 @@ resource "helm_release" "spinnaker" {
 
   wait = true
 
-  recreate_pods   = true
   cleanup_on_fail = true
   timeout         = 600
 
@@ -23,6 +22,6 @@ resource "helm_release" "spinnaker" {
     })}"
   ]
 
-  # depends_on = [google_container_cluster.primary]
+  depends_on = [google_container_cluster.primary]
 }
 

@@ -1,20 +1,20 @@
 {
   "type": "PIPELINE",
-  "id": "01EA33V7EVDQDD7AKA601QW49X",
+  "id": "01EA35D5Q4FGTZED6VA4J4W4E5",
   "application": "second",
   "name": "staging",
-  "buildTime": 1591390084620,
+  "buildTime": 1591391721228,
   "canceled": false,
   "limitConcurrent": true,
   "keepWaitingPipelines": false,
   "stages": [
     {
-      "id": "01EA33V7GCM273X92HMPM33VCB",
+      "id": "01EA35D5RCZWR9TYXY92VWY894",
       "refId": "1",
       "type": "deployManifest",
       "name": "Deploy (Manifest)",
-      "startTime": 1591390084708,
-      "endTime": 1591390085357,
+      "startTime": 1591391721306,
+      "endTime": 1591391722103,
       "status": "TERMINAL",
       "context": {
         "deploy.account.name": "default",
@@ -31,7 +31,16 @@
             "name": "manifest/nginx.yaml",
             "artifactAccount": "github-artifact",
             "type": "github/file",
-            "version": "master"
+            "version": "f846f42bee533ff8bc0ffc6c5be965c80109bb2f"
+          },
+          {
+            "customKind": false,
+            "reference": "gcr.io/redbelly/nginx@sha256:a405567f0bb8038f6ec8d9c9b90315f4504b2c7bb5f2314cd48ce31db67490cb",
+            "metadata": { "id": "ef6b3b11-6b75-4b11-bb4d-699e9284f6b5" },
+            "name": "gcr.io/redbelly/nginx",
+            "artifactAccount": "docker-registry",
+            "type": "docker/image",
+            "version": "sha256:a405567f0bb8038f6ec8d9c9b90315f4504b2c7bb5f2314cd48ce31db67490cb"
           }
         ],
         "cloudProvider": "kubernetes",
@@ -69,30 +78,30 @@
         "kato.tasks": [
           {
             "exception": {
-              "cause": "The following required artifacts could not be bound: '[ArtifactKey(type=github/file, name=manifest/nginx.yaml, version=master, location=null, reference=https://api.github.com/repos/RastogiAbhijeet/terraform-spinnaker-helm/contents/manifest/nginx.yaml)]'. Check that the Docker image name above matches the name used in the image field of your manifest. Failing the stage as this is likely a configuration error.",
+              "cause": "The following required artifacts could not be bound: '[ArtifactKey(type=github/file, name=manifest/nginx.yaml, version=f846f42bee533ff8bc0ffc6c5be965c80109bb2f, location=null, reference=https://api.github.com/repos/RastogiAbhijeet/terraform-spinnaker-helm/contents/manifest/nginx.yaml)]'. Check that the Docker image name above matches the name used in the image field of your manifest. Failing the stage as this is likely a configuration error.",
               "details": [
                 {
-                  "message": "The following required artifacts could not be bound: '[ArtifactKey(type=github/file, name=manifest/nginx.yaml, version=master, location=null, reference=https://api.github.com/repos/RastogiAbhijeet/terraform-spinnaker-helm/contents/manifest/nginx.yaml)]'. Check that the Docker image name above matches the name used in the image field of your manifest. Failing the stage as this is likely a configuration error."
+                  "message": "The following required artifacts could not be bound: '[ArtifactKey(type=github/file, name=manifest/nginx.yaml, version=f846f42bee533ff8bc0ffc6c5be965c80109bb2f, location=null, reference=https://api.github.com/repos/RastogiAbhijeet/terraform-spinnaker-helm/contents/manifest/nginx.yaml)]'. Check that the Docker image name above matches the name used in the image field of your manifest. Failing the stage as this is likely a configuration error."
                 }
               ],
-              "message": "The following required artifacts could not be bound: '[ArtifactKey(type=github/file, name=manifest/nginx.yaml, version=master, location=null, reference=https://api.github.com/repos/RastogiAbhijeet/terraform-spinnaker-helm/contents/manifest/nginx.yaml)]'. Check that the Docker image name above matches the name used in the image field of your manifest. Failing the stage as this is likely a configuration error.",
+              "message": "The following required artifacts could not be bound: '[ArtifactKey(type=github/file, name=manifest/nginx.yaml, version=f846f42bee533ff8bc0ffc6c5be965c80109bb2f, location=null, reference=https://api.github.com/repos/RastogiAbhijeet/terraform-spinnaker-helm/contents/manifest/nginx.yaml)]'. Check that the Docker image name above matches the name used in the image field of your manifest. Failing the stage as this is likely a configuration error.",
               "type": "EXCEPTION",
               "operation": "KubernetesDeployManifestOperation"
             },
             "resultObjects": [
               {
-                "cause": "The following required artifacts could not be bound: '[ArtifactKey(type=github/file, name=manifest/nginx.yaml, version=master, location=null, reference=https://api.github.com/repos/RastogiAbhijeet/terraform-spinnaker-helm/contents/manifest/nginx.yaml)]'. Check that the Docker image name above matches the name used in the image field of your manifest. Failing the stage as this is likely a configuration error.",
+                "cause": "The following required artifacts could not be bound: '[ArtifactKey(type=github/file, name=manifest/nginx.yaml, version=f846f42bee533ff8bc0ffc6c5be965c80109bb2f, location=null, reference=https://api.github.com/repos/RastogiAbhijeet/terraform-spinnaker-helm/contents/manifest/nginx.yaml)]'. Check that the Docker image name above matches the name used in the image field of your manifest. Failing the stage as this is likely a configuration error.",
                 "details": [
                   {
-                    "message": "The following required artifacts could not be bound: '[ArtifactKey(type=github/file, name=manifest/nginx.yaml, version=master, location=null, reference=https://api.github.com/repos/RastogiAbhijeet/terraform-spinnaker-helm/contents/manifest/nginx.yaml)]'. Check that the Docker image name above matches the name used in the image field of your manifest. Failing the stage as this is likely a configuration error."
+                    "message": "The following required artifacts could not be bound: '[ArtifactKey(type=github/file, name=manifest/nginx.yaml, version=f846f42bee533ff8bc0ffc6c5be965c80109bb2f, location=null, reference=https://api.github.com/repos/RastogiAbhijeet/terraform-spinnaker-helm/contents/manifest/nginx.yaml)]'. Check that the Docker image name above matches the name used in the image field of your manifest. Failing the stage as this is likely a configuration error."
                   }
                 ],
-                "message": "The following required artifacts could not be bound: '[ArtifactKey(type=github/file, name=manifest/nginx.yaml, version=master, location=null, reference=https://api.github.com/repos/RastogiAbhijeet/terraform-spinnaker-helm/contents/manifest/nginx.yaml)]'. Check that the Docker image name above matches the name used in the image field of your manifest. Failing the stage as this is likely a configuration error.",
+                "message": "The following required artifacts could not be bound: '[ArtifactKey(type=github/file, name=manifest/nginx.yaml, version=f846f42bee533ff8bc0ffc6c5be965c80109bb2f, location=null, reference=https://api.github.com/repos/RastogiAbhijeet/terraform-spinnaker-helm/contents/manifest/nginx.yaml)]'. Check that the Docker image name above matches the name used in the image field of your manifest. Failing the stage as this is likely a configuration error.",
                 "type": "EXCEPTION",
                 "operation": "KubernetesDeployManifestOperation"
               }
             ],
-            "id": "9cb5510c-a3d9-4e54-bb67-a17d75d4d2aa",
+            "id": "bc35f2ff-a366-4f94-9e67-feb8169d3385",
             "history": [
               {
                 "phase": "ORCHESTRATION",
@@ -120,19 +129,31 @@
               },
               {
                 "phase": "ORCHESTRATION",
-                "status": "Orchestration failed: KubernetesDeployManifestOperation | IllegalArgumentException: [The following required artifacts could not be bound: '[ArtifactKey(type=github/file, name=manifest/nginx.yaml, version=master, location=null, reference=https://api.github.com/repos/RastogiAbhijeet/terraform-spinnaker-helm/contents/manifest/nginx.yaml)]'. Check that the Docker image name above matches the name used in the image field of your manifest. Failing the stage as this is likely a configuration error.]"
+                "status": "Orchestration failed: KubernetesDeployManifestOperation | IllegalArgumentException: [The following required artifacts could not be bound: '[ArtifactKey(type=github/file, name=manifest/nginx.yaml, version=f846f42bee533ff8bc0ffc6c5be965c80109bb2f, location=null, reference=https://api.github.com/repos/RastogiAbhijeet/terraform-spinnaker-helm/contents/manifest/nginx.yaml)]'. Check that the Docker image name above matches the name used in the image field of your manifest. Failing the stage as this is likely a configuration error.]"
               }
             ],
             "status": { "retryable": false, "completed": true, "failed": true }
           }
         ],
         "manifestArtifactAccount": "github-artifact",
-        "kato.last.task.id": { "id": "9cb5510c-a3d9-4e54-bb67-a17d75d4d2aa" },
+        "kato.last.task.id": { "id": "bc35f2ff-a366-4f94-9e67-feb8169d3385" },
         "kato.task.notFoundRetryCount": 0,
         "account": "default",
-        "requiredArtifactIds": ["6ea85c01-095d-4eaf-af75-312902e99907"],
+        "requiredArtifactIds": [
+          "34ba6395-3725-4459-8837-8f8c1a13236c",
+          "6ea85c01-095d-4eaf-af75-312902e99907"
+        ],
         "skipExpressionEvaluation": false,
         "requiredArtifacts": [
+          {
+            "customKind": false,
+            "reference": "gcr.io/redbelly/nginx@sha256:a405567f0bb8038f6ec8d9c9b90315f4504b2c7bb5f2314cd48ce31db67490cb",
+            "metadata": { "id": "ef6b3b11-6b75-4b11-bb4d-699e9284f6b5" },
+            "name": "gcr.io/redbelly/nginx",
+            "artifactAccount": "docker-registry",
+            "type": "docker/image",
+            "version": "sha256:a405567f0bb8038f6ec8d9c9b90315f4504b2c7bb5f2314cd48ce31db67490cb"
+          },
           {
             "customKind": false,
             "reference": "https://api.github.com/repos/RastogiAbhijeet/terraform-spinnaker-helm/contents/manifest/nginx.yaml",
@@ -140,7 +161,7 @@
             "name": "manifest/nginx.yaml",
             "artifactAccount": "github-artifact",
             "type": "github/file",
-            "version": "master"
+            "version": "f846f42bee533ff8bc0ffc6c5be965c80109bb2f"
           }
         ],
         "kato.task.lastStatus": "TERMINAL"
@@ -174,10 +195,19 @@
         ],
         "requiredArtifacts": [
           {
+            "type": "docker/image",
+            "customKind": false,
+            "name": "gcr.io/redbelly/nginx",
+            "version": "sha256:a405567f0bb8038f6ec8d9c9b90315f4504b2c7bb5f2314cd48ce31db67490cb",
+            "reference": "gcr.io/redbelly/nginx@sha256:a405567f0bb8038f6ec8d9c9b90315f4504b2c7bb5f2314cd48ce31db67490cb",
+            "metadata": { "id": "ef6b3b11-6b75-4b11-bb4d-699e9284f6b5" },
+            "artifactAccount": "docker-registry"
+          },
+          {
             "type": "github/file",
             "customKind": false,
             "name": "manifest/nginx.yaml",
-            "version": "master",
+            "version": "f846f42bee533ff8bc0ffc6c5be965c80109bb2f",
             "reference": "https://api.github.com/repos/RastogiAbhijeet/terraform-spinnaker-helm/contents/manifest/nginx.yaml",
             "metadata": { "id": "1ab4f783-1164-4aca-bce2-2cb5543792e2" },
             "artifactAccount": "github-artifact"
@@ -188,10 +218,19 @@
             "type": "github/file",
             "customKind": false,
             "name": "manifest/nginx.yaml",
-            "version": "master",
+            "version": "f846f42bee533ff8bc0ffc6c5be965c80109bb2f",
             "reference": "https://api.github.com/repos/RastogiAbhijeet/terraform-spinnaker-helm/contents/manifest/nginx.yaml",
             "metadata": { "id": "1ab4f783-1164-4aca-bce2-2cb5543792e2" },
             "artifactAccount": "github-artifact"
+          },
+          {
+            "type": "docker/image",
+            "customKind": false,
+            "name": "gcr.io/redbelly/nginx",
+            "version": "sha256:a405567f0bb8038f6ec8d9c9b90315f4504b2c7bb5f2314cd48ce31db67490cb",
+            "reference": "gcr.io/redbelly/nginx@sha256:a405567f0bb8038f6ec8d9c9b90315f4504b2c7bb5f2314cd48ce31db67490cb",
+            "metadata": { "id": "ef6b3b11-6b75-4b11-bb4d-699e9284f6b5" },
+            "artifactAccount": "docker-registry"
           }
         ]
       },
@@ -200,8 +239,8 @@
           "id": "1",
           "implementingClass": "com.netflix.spinnaker.orca.clouddriver.tasks.manifest.ResolveDeploySourceManifestTask",
           "name": "resolveDeploySourceManifest",
-          "startTime": 1591390084758,
-          "endTime": 1591390085074,
+          "startTime": 1591391721359,
+          "endTime": 1591391721827,
           "status": "SUCCEEDED",
           "stageStart": true,
           "stageEnd": false,
@@ -212,8 +251,8 @@
           "id": "2",
           "implementingClass": "com.netflix.spinnaker.orca.clouddriver.tasks.manifest.DeployManifestTask",
           "name": "deployManifest",
-          "startTime": 1591390085079,
-          "endTime": 1591390085188,
+          "startTime": 1591391721832,
+          "endTime": 1591391721935,
           "status": "SUCCEEDED",
           "stageStart": false,
           "stageEnd": false,
@@ -224,8 +263,8 @@
           "id": "3",
           "implementingClass": "com.netflix.spinnaker.orca.clouddriver.tasks.MonitorKatoTask",
           "name": "monitorDeploy",
-          "startTime": 1591390085193,
-          "endTime": 1591390085303,
+          "startTime": 1591391721940,
+          "endTime": 1591391722049,
           "status": "TERMINAL",
           "stageStart": false,
           "stageEnd": false,
@@ -316,8 +355,8 @@
       "requisiteStageRefIds": []
     }
   ],
-  "startTime": 1591390084702,
-  "endTime": 1591390085411,
+  "startTime": 1591391721301,
+  "endTime": 1591391722156,
   "status": "TERMINAL",
   "authentication": {
     "user": "anonymous",
@@ -336,7 +375,16 @@
         "name": "manifest/nginx.yaml",
         "artifactAccount": "github-artifact",
         "type": "github/file",
-        "version": "master"
+        "version": "f846f42bee533ff8bc0ffc6c5be965c80109bb2f"
+      },
+      {
+        "customKind": false,
+        "reference": "gcr.io/redbelly/nginx@sha256:a405567f0bb8038f6ec8d9c9b90315f4504b2c7bb5f2314cd48ce31db67490cb",
+        "metadata": { "id": "ef6b3b11-6b75-4b11-bb4d-699e9284f6b5" },
+        "name": "gcr.io/redbelly/nginx",
+        "artifactAccount": "docker-registry",
+        "type": "docker/image",
+        "version": "sha256:a405567f0bb8038f6ec8d9c9b90315f4504b2c7bb5f2314cd48ce31db67490cb"
       }
     ],
     "notifications": [],
@@ -354,7 +402,7 @@
           "name": "manifest/nginx.yaml",
           "artifactAccount": "github-artifact",
           "type": "github/file",
-          "version": "master"
+          "version": "f846f42bee533ff8bc0ffc6c5be965c80109bb2f"
         },
         "id": "6ea85c01-095d-4eaf-af75-312902e99907",
         "boundArtifact": {
@@ -364,7 +412,7 @@
           "name": "manifest/nginx.yaml",
           "artifactAccount": "github-artifact",
           "type": "github/file",
-          "version": "master"
+          "version": "f846f42bee533ff8bc0ffc6c5be965c80109bb2f"
         },
         "matchArtifact": {
           "customKind": false,
@@ -372,6 +420,36 @@
           "name": "manifest/nginx.yaml",
           "artifactAccount": "github-artifact",
           "type": "github/file"
+        }
+      },
+      {
+        "usePriorArtifact": false,
+        "useDefaultArtifact": true,
+        "defaultArtifact": {
+          "customKind": false,
+          "reference": "gcr.io/redbelly/nginx@sha256:a405567f0bb8038f6ec8d9c9b90315f4504b2c7bb5f2314cd48ce31db67490cb",
+          "metadata": { "id": "ef6b3b11-6b75-4b11-bb4d-699e9284f6b5" },
+          "name": "gcr.io/redbelly/nginx",
+          "artifactAccount": "docker-registry",
+          "type": "docker/image",
+          "version": "sha256:a405567f0bb8038f6ec8d9c9b90315f4504b2c7bb5f2314cd48ce31db67490cb"
+        },
+        "id": "34ba6395-3725-4459-8837-8f8c1a13236c",
+        "boundArtifact": {
+          "customKind": false,
+          "reference": "gcr.io/redbelly/nginx@sha256:a405567f0bb8038f6ec8d9c9b90315f4504b2c7bb5f2314cd48ce31db67490cb",
+          "metadata": { "id": "ef6b3b11-6b75-4b11-bb4d-699e9284f6b5" },
+          "name": "gcr.io/redbelly/nginx",
+          "artifactAccount": "docker-registry",
+          "type": "docker/image",
+          "version": "sha256:a405567f0bb8038f6ec8d9c9b90315f4504b2c7bb5f2314cd48ce31db67490cb"
+        },
+        "matchArtifact": {
+          "customKind": false,
+          "metadata": { "id": "a1dcf671-84a4-47f3-a9cb-c1f0c231ed2a" },
+          "name": "gcr.io/redbelly/nginx@sha256:a405567f0bb8038f6ec8d9c9b90315f4504b2c7bb5f2314cd48ce31db67490cb",
+          "artifactAccount": "docker-registry",
+          "type": "docker/image"
         }
       }
     ],
@@ -386,7 +464,7 @@
           "name": "manifest/nginx.yaml",
           "artifactAccount": "github-artifact",
           "type": "github/file",
-          "version": "master"
+          "version": "f846f42bee533ff8bc0ffc6c5be965c80109bb2f"
         },
         "id": "6ea85c01-095d-4eaf-af75-312902e99907",
         "boundArtifact": {
@@ -396,7 +474,7 @@
           "name": "manifest/nginx.yaml",
           "artifactAccount": "github-artifact",
           "type": "github/file",
-          "version": "master"
+          "version": "f846f42bee533ff8bc0ffc6c5be965c80109bb2f"
         },
         "matchArtifact": {
           "customKind": false,
@@ -405,10 +483,40 @@
           "artifactAccount": "github-artifact",
           "type": "github/file"
         }
+      },
+      {
+        "usePriorArtifact": false,
+        "useDefaultArtifact": true,
+        "defaultArtifact": {
+          "customKind": false,
+          "reference": "gcr.io/redbelly/nginx@sha256:a405567f0bb8038f6ec8d9c9b90315f4504b2c7bb5f2314cd48ce31db67490cb",
+          "metadata": { "id": "ef6b3b11-6b75-4b11-bb4d-699e9284f6b5" },
+          "name": "gcr.io/redbelly/nginx",
+          "artifactAccount": "docker-registry",
+          "type": "docker/image",
+          "version": "sha256:a405567f0bb8038f6ec8d9c9b90315f4504b2c7bb5f2314cd48ce31db67490cb"
+        },
+        "id": "34ba6395-3725-4459-8837-8f8c1a13236c",
+        "boundArtifact": {
+          "customKind": false,
+          "reference": "gcr.io/redbelly/nginx@sha256:a405567f0bb8038f6ec8d9c9b90315f4504b2c7bb5f2314cd48ce31db67490cb",
+          "metadata": { "id": "ef6b3b11-6b75-4b11-bb4d-699e9284f6b5" },
+          "name": "gcr.io/redbelly/nginx",
+          "artifactAccount": "docker-registry",
+          "type": "docker/image",
+          "version": "sha256:a405567f0bb8038f6ec8d9c9b90315f4504b2c7bb5f2314cd48ce31db67490cb"
+        },
+        "matchArtifact": {
+          "customKind": false,
+          "metadata": { "id": "a1dcf671-84a4-47f3-a9cb-c1f0c231ed2a" },
+          "name": "gcr.io/redbelly/nginx@sha256:a405567f0bb8038f6ec8d9c9b90315f4504b2c7bb5f2314cd48ce31db67490cb",
+          "artifactAccount": "docker-registry",
+          "type": "docker/image"
+        }
       }
     ],
-    "executionId": "01EA33V7EVDQDD7AKA601QW49X",
-    "eventId": "88e0305e-42d0-4dad-9021-16aece8b9c35",
+    "executionId": "01EA35D5Q4FGTZED6VA4J4W4E5",
+    "eventId": "4eafdfec-15a5-4f1e-a951-969d42304d86",
     "enabled": false
   },
   "pipelineConfigId": "471cad24-a173-435e-8505-f2961524479d",
