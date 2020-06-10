@@ -3,16 +3,16 @@ kind: Deployment
 metadata:
   name: nginx-deployment-wtf
   labels:
-    app: nginx-test
+    app: nginx-test-wtf
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: nginx-test
+      app: nginx-test-wtf
   template:
     metadata:
       labels:
-        app: nginx-test
+        app: nginx-test-wtf
     spec:
       containers:
         - name: nginx
